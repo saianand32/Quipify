@@ -1,14 +1,13 @@
 package main
 
-import "log"
+import (
+	"log"
+
+	"github.com/saianand32/Quipify/internal/config"
+)
 
 func main() {
-	c := config{
-		addr: ":8080",
-	}
-	app := &application{
-		config: c,
-	}
-
+	c := config.New()
+	app := &application{c}
 	log.Fatal(app.run())
 }
